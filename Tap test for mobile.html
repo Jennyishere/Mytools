@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 40vw;
+            height: 20vh;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script>
+       var box = document.querySelector('.box'); 
+       var startTime; 
+       var endTime; 
+       var startX;
+       var startY;
+       var endX;
+       var endY;
+       box.addEventListener('touchstart',function(e) {
+        // 记录开始和结束 单击--触摸点的集合长度是1
+            if(e.touches.length !== 1) {
+                return;
+            }
+            // 记录开始和结束触摸的时间
+            startTime = Date.now();
+            // 记录开始和结束的位置
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+       })
+       box.addEventListener('touchend',function(e) {
+        // 记录开始和结束 单击--触摸点的集合长度是1
+            if(e.changedTouches.length != 1) {
+                return;
+            }
+            endTime = Date.now();
+            endX = e.changedTouches[0].clientX;
+            endY= e.changedTouches[0].clientY;
+           
+            if((endTime - startTime) > 250 || Math.abs(endX - startX) > 50 || Math.abs(endY - startY) > 50 ) {
+
+                return;
+            }
+          alert('123')
+            
+       })
+    </script>
+</body>
+</html>
