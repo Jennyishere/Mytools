@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function getRandomColor() {
+        var color="#";
+        for(var i=0;i<3;i++){
+            var str=parseInt(Math.random()*256);
+            
+            if(str<16){
+                    str="0"+str.toString(16);     //16以下的是一位数的 需要补0
+                }else {
+                        str=str.toString(16);
+                    }
+                    color+=str;
+                }
+                console.log(color);
+                return color;   //调用函数那就可以得到一个颜色
+            }
+          
+
+
+
+    function createDiv(w,h,bg,lefts,tops) {
+
+        var style=`width:${w}px;height:${h}px;background-color:${bg};position:absolute;top:${tops}px;left:${lefts}px`;
+        var div= `<div style=${style}></div>`;
+        return div;
+       
+    }
+    for(var i=0;i<200;i++) {
+        var h=Math.random()*200;    //随机生成高度、宽度
+        var box=createDiv(h,h, getRandomColor(),Math.random()*1400,Math.random()*720);      //传入参数生成div
+        document.write(box);    //写入html
+    }
+
+</script>
+
+</html>
