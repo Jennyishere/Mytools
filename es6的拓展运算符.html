@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #f90;
+        }
+
+        h1 {
+            max-width: 500px;
+            margin: 150px auto;
+            color: aliceblue;
+            font-size: 80px;
+            text-shadow: 2px 4px 3px #000;
+        }
+        h1 span {
+            display: inline-block;
+            cursor: pointer;
+            transition: transform 0.25s;
+        }
+        h1 span:hover {
+            transform: translateY(-20px) rotate(10deg) scale(2);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>WELCOME!</h1>
+    <script>
+        let h1 = document.querySelector('h1')
+        let text = h1.textContent;
+        let arr = [...text]
+        let newArr = arr.map(letter => {
+            return `<span>${letter}</span>`
+        })
+        let str = newArr.join('')
+        console.log(str);
+        h1.innerHTML = str;
+    </script>
+</body>
+
+</html>
